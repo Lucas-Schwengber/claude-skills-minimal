@@ -26,6 +26,7 @@ Each skill is then a slash command named after its folder, e.g. `/parallel-revie
 | `parallel-work` | How to split a task across sub-agents: when to delegate, how to brief them, how to check what they return. |
 | `supervised-implement` | Implement a plan together, one reviewed edit at a time, with proposals shown in chat before they reach a file. |
 | `docstring` | NumPy-style Python docstrings and section-divider comments. |
+| `digest-make` | Copies a report with its sections blanked, so you can fill in your own comments and questions and have Claude answer them. Pairs with `write-report`'s tags. |
 | `convert-notes` | Transcribes handwritten notes in a PDF to Markdown with LaTeX math. |
 | `resume-later` | Wraps up a session before you leave: finds work that would die with it, relaunches or records it, and writes a handoff note with ready-made checks. |
 | `clean-sessions` | Finds dangling Claude Code processes (stuck, orphaned, long idle) and asks which to end. |
