@@ -16,7 +16,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 CLAUDE_AUTHOR = "CLAUDE (C)"
-AUTHOR_TAG = re.compile(r"\([A-Z]+(?:\+[A-Z]+)*\)$")
+AUTHOR_TAG = re.compile(r"\((?:H|C|H\+C)\)$")
 ISO_DATE = re.compile(r"\d{4}-\d{2}-\d{2}$")
 KEY_LINE = re.compile(r"([A-Za-z_][\w-]*):\s*(.*)$")
 FENCE = re.compile(r"(`{3,}|~{3,})")
@@ -102,7 +102,8 @@ def check_frontmatter(fields, today):
             continue
         if key == "updated" and value != today:
             problems.append(f"'updated' is {value}, not today ({today})")
-    if "authors" in fields and CLAUDE_AUTHOR not in fields["authors"]:
+    if ("authors" in fields and CLAUDE_AUTHOR not in fields["authors"]
+            and (fields.get("type") or "").strip() != "digest"):
         problems.append(f"'authors' does not list {CLAUDE_AUTHOR}")
     return problems
 

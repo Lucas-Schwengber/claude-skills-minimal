@@ -9,8 +9,7 @@ not the goal; a codebase the user understands and agreed to is.
 ## Session start
 
 1. Read the note(s) named by the user and any comments or questions file the user
-   keeps next to them (treat those as
-   constraints).
+   keeps next to them (treat those as constraints).
 2. Enter plan mode. The plan is high-level and fits on one screen: the
    units in order (a unit is one commit), what quantity each unit's test
    compares against what, the result directory, and the open decisions
@@ -33,7 +32,7 @@ Anything that fixes an interface or a quantity the experiment depends on:
 - the schema of what a driver saves (`.npz` keys, CSV columns)
 - the oracle formula, the test's tolerance, and any numerical constant
   (grid sizes, ridge, seeds, MC budgets)
-- anything inside `scripts/ottoflow/` (the core package)
+- anything inside the project's core package (as named in CLAUDE.md or the plan)
 - sbatch resources, or deleting / renaming anything
 
 **Tier B — apply directly through the permission prompt.** Edits inside a
@@ -59,9 +58,9 @@ When in doubt, it is Tier A.
 1. The oracle test (Tier A). The user reviews the test before the
    implementation exists.
 2. The implementation, in Tier-A / Tier-B pieces.
-3. Run the test (sbatch, per CLAUDE.md; show the command first).
-4. Commit the unit: on main, only the unit's files, message names the
-   unit. Mark a chapter.
+3. Run the test (as the project's CLAUDE.md says; show the command first).
+4. Commit the unit: on the working branch, only the unit's files, message
+   names the unit.
 
 ## Pacing
 

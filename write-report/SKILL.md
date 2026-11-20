@@ -104,6 +104,6 @@ python3 ${CLAUDE_SKILL_DIR}/check_report.py PATH
 ```
 
 It flags missing frontmatter keys, non-ISO dates, `updated` not today, `CLAUDE (C)`
-missing from `authors`, H2 headings without an author tag, wikilinks and relative links
+missing from `authors` (digests, `type: digest`, are exempt), H2 headings without an author tag, wikilinks and relative links
 that do not resolve. Fix what it reports and rerun until it prints `OK`. Ignore a flag
 only where the repo's conventions or the active skill say otherwise.

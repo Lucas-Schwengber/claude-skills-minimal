@@ -35,7 +35,7 @@ Each skill is then a slash command named after its folder, e.g. `/parallel-revie
 ## Notes
 
 - `resume-later` and `resources-summary` assume a **Slurm** cluster and a Linux login
-  machine. `clean-sessions` is Linux-only.
+  machine, and `resume-later` needs `gawk`. `clean-sessions` is Linux-only.
 - `interrogate-me` is a lightly adapted version of an idea from
   [mattpocock/skills](https://github.com/mattpocock/skills).
 - Skills can run shell commands and pre-approve tools. Read a skill before installing it.

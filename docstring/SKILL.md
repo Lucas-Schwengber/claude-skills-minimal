@@ -46,7 +46,7 @@ class MyClass:
         """
 ```
 
-## Method example (from `hermite_flow_bootstrap.py`)
+## Method example
 
 ```python
     def _greedy_select(self, gram_matrix_sobolev_np, raw_sensitivities_np):
