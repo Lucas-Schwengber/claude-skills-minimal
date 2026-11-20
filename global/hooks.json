@@ -1,0 +1,13 @@
+{
+  "UserPromptSubmit": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "~/.claude/hooks/fork-rename.sh 2>/dev/null || true",
+          "timeout": 10
+        }
+      ]
+    }
+  ]
+}

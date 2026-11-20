@@ -13,7 +13,10 @@ cd ~/dev/claude-skills-minimal
 ```
 
 `install.sh` symlinks each skill folder into `~/.claude/skills/` (override with
-`CLAUDE_SKILLS_DIR`). Re-run it after pulling. Or copy any skill folder there by hand.
+`CLAUDE_SKILLS_DIR`). It also links the hook scripts and registers them in
+`~/.claude/settings.json` (see Hooks), and sets this clone's git `core.hooksPath` to
+`hooks/`, so a later `git pull` that adds or removes a skill relinks automatically.
+Re-run it by hand any time. Or just copy a skill folder into `~/.claude/skills/`.
 Each skill is then a slash command named after its folder, e.g. `/parallel-review`.
 
 ## Skills
@@ -31,6 +34,19 @@ Each skill is then a slash command named after its folder, e.g. `/parallel-revie
 | `resume-later` | Wraps up a session before you leave: finds work that would die with it, relaunches or records it, and writes a handoff note with ready-made checks. |
 | `clean-sessions` | Finds dangling Claude Code processes (stuck, orphaned, long idle) and asks which to end. |
 | `resources-summary` | One table of the jobs and processes behind a session: node, cores, memory, GPUs, elapsed, predicted finish. |
+
+## Hooks
+
+`global/hooks/` holds Claude Code hook scripts; `global/hooks.json` has the shape of
+settings.json's `"hooks"` object. `install.sh` links each script into `~/.claude/hooks/`
+and merges the manifest into `~/.claude/settings.json` (needs `jq`; it backs up an
+existing file first, never adds an entry twice, and leaves your own hooks alone). Restart
+running sessions after the first install, since Claude Code reads hooks at startup.
+
+- `fork-rename.sh` (`UserPromptSubmit`): when a Claude **desktop app** session's title is
+  still the default `<parent title> (fork)` / `(fork N)`, it tells Claude to rename it to
+  `↳ <what this fork is for> (fork N)`. It reads `~/.claude/sessions/*.json`, which only
+  the desktop app writes; elsewhere it does nothing.
 
 ## Notes
 
